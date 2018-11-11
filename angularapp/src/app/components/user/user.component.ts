@@ -11,9 +11,10 @@ import {Component} from '@angular/core';
 })
 export class UserComponent{
 //properties
-firstName='John';
-lastName='Doe';
-age=30;
+firstName:string='John';
+lastName:string='Doe';
+age:number=30;
+foo:any
 address={
   street:'50 main st',
   city:'Boston',
@@ -25,6 +26,7 @@ constructor(){
   console.log(this.age)
   this.hasBirthday()
   console.log(this.age)
+  this.foo=9
 }
 sayHello(){
   console.log(`Hello ${this.firstName}`)
