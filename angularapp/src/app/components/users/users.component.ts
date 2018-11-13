@@ -9,42 +9,61 @@ import {User} from '../../models/User'
 })
 export class UsersComponent implements OnInit {
   users:User[]
+  showExtended: boolean=true;
+  loaded: boolean=false
+  enableAdd:boolean=false
   constructor() { }
 
   ngOnInit() {
-    this.users=[
-      {
-      firstName:'John',
-      lastName:'Doe',
-      age:30,
-      address:{
-        street:'50 main street',
-        city:"Boston",
-        state:"Ma"
-      }
+
+    setTimeout(()=>{
+
+      this.users=[
+        {
+        firstName:'John',
+        lastName:'Doe',
+        age:30,
+        address:{
+          street:'50 main street',
+          city:"Boston",
+          state:"Ma"
+        },
+        image:'http://lorempixel.com/600/600/people/3'
+    
+    },{
+    firstName:'kevin',
+    lastName:'Johnson',
+    age:24,
+    address:{
+      street:'55 mill street',
+      city:"Dallas",
+      state:"TX"
+    },
+    image:'http://lorempixel.com/600/600/people/2'
   
   },{
-  firstName:'kevin',
-  lastName:'Johnson',
-  age:24,
-  address:{
-    street:'55 mill street',
-    city:"Dallas",
-    state:"TX"
+    firstName:'John',
+    lastName:'Smith',
+    age:23,
+    address:{
+      street:'20 school st',
+      city:"Houston",
+      state:"TX"
+    },
+    image:'http://lorempixel.com/600/600/people/1'
+  
   }
+      ]
+      this.loaded=true;
 
-},{
-  firstName:'John',
-  lastName:'Smith',
-  age:23,
-  address:{
-    street:'20 school st',
-    city:"Houston",
-    state:"TX"
-  }
+    },2000)
 
-}
-    ]
+
+    
+
+    this.showExtended=true;
+
+
     this.addUser({
       firstName:'kevin',
       lastName:'Hurt',
