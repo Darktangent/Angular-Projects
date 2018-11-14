@@ -11,24 +11,30 @@ export class UsersComponent implements OnInit {
   users:User[]
   showExtended: boolean=true;
   loaded: boolean=false
-  enableAdd:boolean=false
+  enableAdd:boolean=true
+  currentClasses={}
+  currentStyles={}
   constructor() { }
 
   ngOnInit() {
 
-    setTimeout(()=>{
+    
 
       this.users=[
         {
         firstName:'John',
         lastName:'Doe',
-        age:30,
+        age:70,
         address:{
           street:'50 main street',
           city:"Boston",
           state:"Ma"
         },
-        image:'http://lorempixel.com/600/600/people/3'
+        image:'http://lorempixel.com/600/600/people/3',
+        isActive:true,
+        balance:100,
+        registered: new Date('01/02/2018 08:30:00')
+
     
     },{
     firstName:'kevin',
@@ -50,13 +56,18 @@ export class UsersComponent implements OnInit {
       city:"Houston",
       state:"TX"
     },
-    image:'http://lorempixel.com/600/600/people/1'
+    image:'http://lorempixel.com/600/600/people/1',
+    isActive:true,
+    balance:100,
+    registered: new Date('01/02/2018 08:30:00')
   
   }
       ]
       this.loaded=true;
+      this.setCurrentClasses();
+      this.setCurrentStyles();
 
-    },2000)
+    
 
 
     
@@ -77,6 +88,18 @@ export class UsersComponent implements OnInit {
   }
     addUser(user:User){
       this.users.push(user)
+    }
+    setCurrentClasses(){
+      this.currentClasses={
+        'btn-success':this.enableAdd,
+        'big-text':this.showExtended
+      }
+    }
+    setCurrentStyles(){
+      this.currentStyles={
+        'padding-top': this.showExtended? "0" : '40px',
+        'font-size': this.showExtended ?"":"40px"
+      }
     }
   
 
