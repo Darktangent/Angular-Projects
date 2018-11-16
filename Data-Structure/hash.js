@@ -38,7 +38,7 @@ set(key,value){
     return this.data
   
  
-  return this.data
+
 
 }
 get(key){
@@ -57,6 +57,18 @@ get(key){
 
 
 
+}
+keys(){
+
+  const keyArray=[]
+  for(let i=0; i<this.data.length;i++){
+
+    if(this.data[i]){
+      console.log.log(this.data[i][0][0])
+      keyArray.push(this.data[i][0])[0]
+    }
+  }
+  return keyArray
 }
 
 
