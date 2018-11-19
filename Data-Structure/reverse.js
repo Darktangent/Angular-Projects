@@ -16,5 +16,15 @@ let i=0
 
 
 }
+
+function rev(str){
+
+  if(str===""){
+    return ""
+  }else{
+    return rev(str.substr(1)+str.charAt(0))
+  }
+}
+
 reverseString('hola')
 reverseString('Rohan Ganguly')
